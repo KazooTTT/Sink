@@ -76,7 +76,7 @@ Workers 要在 Builds 和运行时填相同值。Pages 只填一次，然后重�
 | `NUXT_PUBLIC_PREVIEW_MODE`        | 空      | `true` = 演示模式（链接只活 5 分钟）                                |
 | `NUXT_PUBLIC_SLUG_DEFAULT_LENGTH` | `6`     | 自动生成短链码的长度                                                |
 | `NUXT_PUBLIC_KV_BATCH_LIMIT`      | `50`    | 导出每页条数；导入每次最多一半                                      |
-| `NUXT_PUBLIC_MAX_URL_LENGTH`      | `16384` | 目标 URL 最大字符数（256-24000）                                    |
+| `NUXT_PUBLIC_MAX_URL_LENGTH`      | `24000` | 目标 URL 最大字符数（256-24000）                                    |
 | `NUXT_PUBLIC_HOME_URL`            | 空      | 非空则把 `/` 重定向到该 URL；空则显示 Sink 首页                     |
 | `NUXT_PUBLIC_LINK_PROXY_ENABLED`  | `false` | `true` 时允许链接开启反向代理模式；关闭时存量代理链接回退为普通跳转 |
 
@@ -84,7 +84,7 @@ Workers 要在 Builds 和运行时填相同值。Pages 只填一次，然后重�
 
 `NUXT_HOME_URL` 是 `NUXT_PUBLIC_HOME_URL` 的旧名称，目前仍然有效，建议下次调整配置时改成新名称。
 
-点击统计会把目标 URL 写入 Workers Analytics Engine，而它限制每个数据点的全部 blob 合计不超过 16 KB。当 URL 加上其他点击字段（User-Agent、Referer 等）超过这个大小时（URL 接近默认上限 16384 字符时可能发生），跳转仍然正常，但这次点击不会出现在统计里。如果统计完整比支持超长 URL 更重要，请调低 `NUXT_PUBLIC_MAX_URL_LENGTH`。
+点击统计会把目标 URL 写入 Workers Analytics Engine，而它限制每个数据点的全部 blob 合计不超过 16 KB。当 URL 加上其他点击字段（User-Agent、Referer 等）超过这个大小时（URL 未超过默认上限 24000 字符时也可能发生），跳转仍然正常，但这次点击不会出现在统计里。如果统计完整比支持超长 URL 更重要，请调低 `NUXT_PUBLIC_MAX_URL_LENGTH`。
 
 ## 可选配置
 
