@@ -76,7 +76,7 @@ On Workers, set the same value in Builds and runtime. On Pages, set once, then r
 | `NUXT_PUBLIC_PREVIEW_MODE`        | empty   | `true` = demo mode (links last 5 minutes)                                                          |
 | `NUXT_PUBLIC_SLUG_DEFAULT_LENGTH` | `6`     | Length of auto-generated short codes                                                               |
 | `NUXT_PUBLIC_KV_BATCH_LIMIT`      | `50`    | Export page size; import accepts at most half per request                                          |
-| `NUXT_PUBLIC_MAX_URL_LENGTH`      | `16384` | Maximum target URL length in characters (256-24000)                                                |
+| `NUXT_PUBLIC_MAX_URL_LENGTH`      | `24000` | Maximum target URL length in characters (256-24000)                                                |
 | `NUXT_PUBLIC_HOME_URL`            | empty   | Non-empty URL redirects `/`; empty shows the Sink homepage                                         |
 | `NUXT_PUBLIC_LINK_PROXY_ENABLED`  | `false` | `true` allows links to opt into reverse proxy mode; off, stored proxy links fall back to redirects |
 
@@ -84,7 +84,7 @@ On Workers, set the same value in Builds and runtime. On Pages, set once, then r
 
 `NUXT_HOME_URL` is the deprecated name of `NUXT_PUBLIC_HOME_URL`. It still works, but rename it when you next change your settings.
 
-Click analytics store the target URL in Workers Analytics Engine, which limits all blobs in a data point to 16 KB in total. When the URL plus the other click fields (user agent, referer, and so on) exceeds that size, which is possible near the default 16384-character limit, the click still redirects but is missing from analytics. Lower `NUXT_PUBLIC_MAX_URL_LENGTH` if complete analytics matter more than long URLs.
+Click analytics store the target URL in Workers Analytics Engine, which limits all blobs in a data point to 16 KB in total. When the URL plus the other click fields (user agent, referer, and so on) exceeds that size, which can happen within the default 24000-character limit, the click still redirects but is missing from analytics. Lower `NUXT_PUBLIC_MAX_URL_LENGTH` if complete analytics matter more than long URLs.
 
 ## Optional
 

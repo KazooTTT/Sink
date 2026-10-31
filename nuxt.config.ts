@@ -43,7 +43,7 @@ export default defineNuxtConfig({
       previewMode: '',
       slugDefaultLength: '6',
       kvBatchLimit: '50',
-      maxUrlLength: '16384',
+      maxUrlLength: '24000',
       homeURL: process.env.NUXT_HOME_URL || '',
       linkProxyEnabled: false,
     },
